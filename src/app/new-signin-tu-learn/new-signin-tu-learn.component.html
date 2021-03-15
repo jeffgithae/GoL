@@ -1,0 +1,74 @@
+<div class="container">
+    <div class="card">
+        <div class="card-front">
+            <div *ngIf="isShowLoginForm">
+                <form [formGroup] = 'form' (ngSubmit) = 'login()' > 
+                    <label>Username</label> 
+                    <input type = 'text' formControlName = 'username' placeholder="Username" class="input-box"  /> 
+                    <label>Password</label> 
+                    <input type = 'password' formControlName = 'password' placeholder="Password" class="input-box" /> 
+                    <br>
+        
+                    <input type = 'checkbox'  formControlName = 'checkbox' class = "check-box"> <span> Remember Me </span>
+                    <div> 
+                        <button type ='submit' class="submit-btn" [disabled] = '!this.form.valid'> 
+                            Login 
+                        </button> 
+                    </div> 
+                </form> 
+                <button type="button" class="btn" onclick="register()">No account? Register Now</button>
+                <a href="">Forgot password</a>
+            </div>
+            <div *ngIf="!isShowLoginForm"> 
+                <form [formGroup] = 'registerform' (ngSubmit) = 'register()' > 
+                    <label>First Name</label> 
+                    <input type = 'text' formControlName = 'firstName' class="input-box" style="width:50%; float: left;"> /> 
+                    <label>Last Name</label> 
+                    <input type = 'text' formControlName = 'lastName' class="input-box" style="width:50%; float: left;"> /> 
+                    <label>Email</label> 
+                    <input type = 'email' formControlName = 'email' class="input-box" /> 
+                    <label>Password</label> 
+                    <input type = 'password' formControlName = 'password' placeholder="Password" required class="input-box"/> 
+                    <br>
+                    <input type="checkbox"><span>Remember me</span>
+                    <div> 
+                        <button type ='submit' class="submit-btn" [disabled] = '!this.form.valid'> 
+                            Register 
+                        </button> 
+                    </div> 
+                </form> 
+                <button type="button" class="btn" onclick="login()">Existing account? Log in Now</button>
+                <a href="">Forgot password</a>
+            </div>
+
+
+
+            <!-- <div class="card-front">
+                <h2>Log In</h2>
+                <form>
+                    <input type="email" class="input-box" placeholder="Your Email Id" required>
+                    <input type="password" class="input-box" placeholder="Password" required>
+                    <button type="submit" class="submit-btn">Submit</button>
+                    <input type="checkbox"><span>Remember me</span>
+                </form>
+                <button type="button" class="btn" onclick="openRegister()">No account? Register Now</button>
+                <a href="">Forgot password</a>
+            </div> -->
+            <!-- <div class="card-back">
+                <h2>Register</h2>
+                <form>
+                    <input type="text" class="input-box" placeholder="First Name" required
+                        style="width:50%; float: left;">
+                    <input type="text" class="input-box" placeholder="Last Name" required
+                        style="width:50%; float: right;">
+                    <input type="email" class="input-box" placeholder="Your Email Id" required>
+                    <input type="password" class="input-box" placeholder="Password" required>
+                    <button type="submit" class="submit-btn">Submit</button>
+                    <input type="checkbox"><span>Remember me</span>
+                </form>
+                <button type="button" class="btn" onclick="openLogin()">Existing account? Log in Now</button>
+                <a href="">Forgot password</a>
+            </div> -->
+        </div>
+    </div>
+</div>

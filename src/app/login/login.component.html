@@ -1,0 +1,71 @@
+<div class="hero">
+    <div id="nav-placeholder">
+        <div class="banner">
+            <div class="navbar">
+                <ul>
+                    <li><a href="HomeTuLearn.html">Home</a></li>
+                    <li><a href="AboutTuLearn.html">About Us</a></li>
+                    <li> <button type="button" class="toggle-btn" (click)="isShowLoginForm=true">Sign In</button></li>
+                    <li><button type="button" class="toggle-btn" (click)="isShowLoginForm=false">Register Now</button></li>
+                </ul>
+            </div>
+        </div>
+
+
+
+<div class="form-block"> 
+    <div class="button-box">
+        <div id="btn"></div>
+        <button type="button" class="toggle-btn" (click)="isShowLoginForm=true">Sign In</button>
+        <button type="button" class="toggle-btn" (click)="isShowLoginForm=false">Register</button>
+    </div>
+    <div *ngIf="isShowLoginForm">
+        <form [formGroup] = 'form' (ngSubmit) = 'login()' class = "input-group"> 
+            <label>Username</label> 
+            <input type = 'text' formControlName = 'username' placeholder="Username" class="input-field"  /> 
+            <label>Password</label> 
+            <input type = 'password' formControlName = 'password' placeholder="Password" class="input-field" /> 
+            <br>
+
+            <input type = 'checkbox'  formControlName = 'checkbox' class = "check-box"> <span> Remember Password </span>
+            <div> 
+                <button type ='submit' class="submit-btn" [disabled] = '!this.form.valid'> 
+                    Login 
+                </button> 
+            </div> 
+        </form> 
+    </div>
+
+
+    <div *ngIf="!isShowLoginForm"> 
+        <form [formGroup] = 'registerform' (ngSubmit) = 'register()' class = "input-group"> 
+            <label>Username</label> 
+            <input type = 'text' formControlName = 'username' class="input-field" /> 
+            <label>First Name</label> 
+            <input type = 'text' formControlName = 'firstName' class="input-field2" /> 
+            <label>Last Name</label> 
+            <input type = 'text' formControlName = 'lastName' class="input-field3"  /> 
+            <label>Phone Number</label> 
+            <input type = 'number' formControlName = 'phoneNumber' class="input-field" /> 
+            <label>Date of Birth</label> 
+            <input type = 'date' formControlName = 'dateOfBirth'  class="input-field2"/> 
+            <label>Class</label> 
+            <input type = 'text' formControlName = 'class' class="input-field4"/> 
+            <label>Email</label> 
+            <input type = 'email' formControlName = 'email' class="input-field" /> 
+            <label>Password</label> 
+            <input type = 'password' formControlName = 'password' placeholder="Password" required class="input-field"/> 
+            <br>
+            <input type="checkbox" formControlName = 'checkbox' class="check-box"><span>I agree to the terms and conditions.</span>
+
+            <div> 
+                <button type ='submit' class="submit-btn" [disabled] = '!this.form.valid'> 
+                    Register 
+                </button> 
+            </div> 
+        </form> 
+    </div>
+    
+</div>
+
+
